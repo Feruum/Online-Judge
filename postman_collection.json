@@ -1,0 +1,116 @@
+{
+    "info": {
+        "_postman_id": "8b3f119e-1111-4444-8888-abcdef123456",
+        "name": "Online Judge API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Problem",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"title\": \"Sum of Two Numbers\",\n    \"description\": \"Read two numbers and print sum\",\n    \"slug\": \"sum-two\",\n    \"timeLimit\": 1.0,\n    \"memoryLimit\": 128,\n    \"testCases\": [\n        { \"input\": \"1 2\", \"output\": \"3\" },\n        { \"input\": \"10 20\", \"output\": \"30\" }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/problems",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "problems"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Problems",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/problems",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "problems"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Submit Solution (Python)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"problemId\": 1,\n    \"language\": \"python\",\n    \"code\": \"import sys\\nfor line in sys.stdin:\\n    a, b = map(int, line.split())\\n    print(a + b)\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/submissions",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "submissions"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Submission Verdict",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/submissions/:id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "submissions",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "REPLACE_WITH_SUBMISSION_ID"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
